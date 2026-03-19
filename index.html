@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sophie Bluel – Architecte d’intérieur</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/style/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="edit-bar" id="editBar">
+		<div class="edit-bar__content">
+		  <span class="edit-bar__icon">
+			<i class="fa-regular fa-pen-to-square"></i>
+		  </span>
+		  <span>Mode édition</span>
+		</div>
+	  </div>
+
+<header>
+	<h1>
+		Sophie Bluel
+		<span>Architecte d’intérieur</span>
+	</h1>
+	<nav>
+		<ul>
+			<li><a href="#portfolio">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li><a href="login.html" id="loginLink">login</a></li>
+			<li><a href="#" id="logoutLink" style="display:none;">logout</a></li>
+			<li>
+				<img src="assets/icons/instagram.png" alt="Instagram">
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<main>
+
+	<!-- INTRODUCTION -->
+	<section class="introduction">
+		<figure>
+			<img src="assets/images/sophie-bluel.png" alt="Sophie Bluel">
+		</figure>
+
+		<article>
+			<h2>Designer d’espace</h2>
+			<p>
+				Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.
+			</p>
+			<p>
+				Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le respect de votre budget.
+			</p>
+			<p>
+				En cas de besoin, une équipe pluridisciplinaire peut être constituée : architecte DPLG, décorateur(trice).
+			</p>
+		</article>
+	</section>
+
+	<!-- PORTFOLIO -->
+	<section id="portfolio" class="portfolio">
+		<div class="portfolio-title">
+			<h2>Mes projets</h2>
+			<button type="button" class="edit-projects" id="editProjectsBtn" style="display:none;">
+				<i class="fa-regular fa-pen-to-square"></i>
+				<span>modifier</span>
+			</button>
+		</div>
+
+		<div class="filters">
+			<button type="button" class="filter-btn active" data-category="all">Tous</button>
+			<button type="button" class="filter-btn" data-category="1">Objets</button>
+			<button type="button" class="filter-btn" data-category="2">Appartements</button>
+			<button type="button" class="filter-btn" data-category="3">Hôtels & restaurants</button>
+		</div>
+
+		<div class="gallery">
+			<!-- Les projets seront ajoutés ici par JavaScript -->
+		</div>
+	</section>
+
+	<!-- MODALES (mode édition) -->
+	<div class="modal-overlay" id="modalOverlay" aria-hidden="true" style="display:none;">
+		<div class="modal" role="dialog" aria-modal="true" aria-label="Gestion des projets">
+			<!-- Header commun -->
+			<div class="modal-header">
+				<button type="button" class="modal-icon-btn" id="modalBackBtn" aria-label="Retour" style="visibility:hidden;">←</button>
+				<h3 class="modal-title" id="modalTitle">Galerie photo</h3>
+				<button type="button" class="modal-icon-btn" id="modalCloseBtn" aria-label="Fermer">✕</button>
+			</div>
+
+			<!-- Vue 1 : Galerie -->
+			<div class="modal-body" id="modalGalleryView">
+				<div class="modal-gallery" id="modalGallery"></div>
+				<div class="modal-separator"></div>
+				<button type="button" class="modal-primary" id="openAddPhotoBtn">Ajouter une photo</button>
+			</div>
+
+			<!-- Vue 2 : Ajout photo -->
+			<div class="modal-body" id="modalAddView" style="display:none;">
+				<form id="addPhotoForm" class="add-form">
+					<div class="upload-box" id="uploadBox">
+						<img id="uploadPreview" alt="Prévisualisation" style="display:none;" />
+						<div class="upload-placeholder" id="uploadPlaceholder">
+							<div class="upload-icon">🖼️</div>
+							<label class="upload-btn" for="photoInput">+ Ajouter photo</label>
+							<input type="file" id="photoInput" accept="image/*" hidden>
+							<p class="upload-hint">jpg, png : 4mo max</p>
+						</div>
+					</div>
+
+					<label for="photoTitle" class="field-label">Titre</label>
+					<input type="text" id="photoTitle" class="field-input" />
+
+					<label for="photoCategory" class="field-label">Catégorie</label>
+					<select id="photoCategory" class="field-input">
+						<option value=""> </option>
+					</select>
+
+					<div class="modal-separator"></div>
+					<button type="submit" class="modal-primary" id="validateAddBtn" disabled>Valider</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- CONTACT -->
+	<section id="contact" class="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+
+		<form>
+			<label for="name">Nom</label>
+			<input type="text" id="name">
+
+			<label for="email">E-mail</label>
+			<input type="email" id="email">
+
+			<label for="message">Message</label>
+			<textarea id="message"></textarea>
+
+			<button type="submit">Envoyer</button>
+		</form>
+	</section>
+
+</main>
+
+<footer>
+	<p>Mentions légales</p>
+</footer>
+
+<script src="assets/js/index.js"></script>
+</body>
+</html>
