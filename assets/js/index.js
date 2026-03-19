@@ -186,7 +186,7 @@ function renderModalGallery() {
     const trash = document.createElement("button");
     trash.type = "button";
     trash.className = "trash-btn";
-    trash.textContent = "🗑";
+    trash.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
     trash.addEventListener("click", async () => {
       if (!token) return;
       try {
