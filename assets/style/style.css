@@ -161,6 +161,12 @@ main {
 	margin-bottom: 20px;
 }
 
+#contact p {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+
 #contact .message-error {
 	text-align: center;
 	margin-bottom: 20px;
@@ -179,18 +185,34 @@ main {
 	margin-bottom: 7px;
 }
 
+#contact input[type="text"],
 #contact input[type="email"],
-#contact input[type="password"] {
+#contact input[type="password"],
+#contact textarea {
 	width: 100%;
-	height: 51px;
-	padding: 0 16px;
 	border: none;
 	background: #fff;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	font-size: 14px;
-	margin-bottom: 25px;
+	padding: 0 16px;
+	font-family: "Work Sans", sans-serif;
 }
 
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="password"] {
+	height: 51px;
+	margin-bottom: 30px;
+}
+
+#contact textarea {
+	min-height: 174px;
+	padding: 16px;
+	margin-bottom: 30px;
+	resize: none;
+}
+
+#contact button[type="submit"],
 #contact input[type="submit"] {
 	width: 179px;
 	height: 36px;
@@ -200,12 +222,14 @@ main {
 	color: white;
 	font-size: 14px;
 	font-family: "Syne", sans-serif;
+	font-weight: 700;
 	cursor: pointer;
 	margin: 10px auto 0;
 	box-shadow: none;
 	padding: 0;
 }
 
+#contact button[type="submit"]:hover,
 #contact input[type="submit"]:hover {
 	opacity: 0.9;
 }
